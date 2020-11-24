@@ -10,15 +10,16 @@ public class HexagonScript : MonoBehaviour
     void Start()
     {
         rb.rotation = Random.Range(0f, 360f);
-        transform.localScale = Vector3.one * 10f;
+        transform.localScale = Vector3.one * 1f;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
-        if (transform.localScale.x <= 0.05f)
+        transform.localScale += Vector3.one * shrinkSpeed * Time.deltaTime;
+       
+        if (transform.localScale.x >= 10f)
         {
             Destroy(gameObject);
         }
