@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
     public float spawnRate = 1f;
-    public GameObject hexagonPrefab;
+    public GameObject[] shapesPrefabs;
+    
+
     private float nextTimeToSpawn = 0f;
     // Start is called before the first frame update
     void Start()
@@ -18,8 +20,10 @@ public class SpawnerScript : MonoBehaviour
     {
         if(Time.time>= nextTimeToSpawn)
         {
-            Instantiate(hexagonPrefab, Vector3.zero, Quaternion.identity);
-            nextTimeToSpawn = Time.time + 1f / spawnRate;
+            int ShapeToSpawn = Random.Range(0, 3);
+                Instantiate(shapesPrefabs[ShapeToSpawn], Vector3.zero, Quaternion.identity);
+                nextTimeToSpawn = Time.time + 1f / spawnRate;
+            
         }
         
     }
