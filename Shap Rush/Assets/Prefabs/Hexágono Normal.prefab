@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3172209955139060570}
   m_Layer: 0
   m_Name: "Hex\xE1gono Normal"
-  m_TagString: Untagged
+  m_TagString: Shape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -3172209955139060570}
-  expandSpeed: 0.3
+  expandSpeed: 0.1
 --- !u!50 &-3172209955139060570
 Rigidbody2D:
   serializedVersion: 4

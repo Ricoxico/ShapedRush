@@ -10,7 +10,7 @@ public class PLayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      movement =  Input.GetAxisRaw("Horizontal");
+        bool movement = Swipe.swipeRight;
     }
     private void FixedUpdate()
     {

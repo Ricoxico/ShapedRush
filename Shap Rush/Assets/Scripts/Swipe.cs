@@ -3,69 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.EventSystems;
-using swipe
 
 public class Swipe : MonoBehaviour
 {
-    private Vector3 fp;   //First touch position
-    private Vector3 lp;   //Last touch position
-    private float dragDistance;  //minimum distance for a swipe to be registered
-
-    void Start()
+    public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
+    private bool isDraging = false;
+    private Vector2 startTouch, swipeDelta;
+    
+    private void Update()
     {
-        dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen
-    }
-
-    void Update()
-    {
-        if (Input.touchCount == 1) // user is touching the screen with a single touch
+        tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
+        #region Standalone Inputs
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0); // get the touch
-            if (touch.phase == TouchPhase.Began) //check for the first touch
+            tap = true;
+            isDraging = true;
+            startTouch = Input.mousePosition;
+        }
+        else if(Input.GetMouseButtonDown(0))
+        {
+            isDraging = false;
+            Reset();
+        }
+        #endregion
+        swipeDelta = Vector2.zero;
+        if (isDraging)
+        {
+            if (Input.touches.Length < 0)
             {
-                fp = touch.position;
-                lp = touch.position;
+                swipeDelta = Input.touches[0].position - startTouch;
             }
-            else if (touch.phase == TouchPhase.Moved) // update the last position based on where they moved
+            else if (Input.GetMouseButtonDown(0))
             {
-                lp = touch.position;
-            }
-            else if (touch.phase == TouchPhase.Ended) //check if the finger is removed from the screen
-            {
-                lp = touch.position;  //last touch position. Ommitted if you use list
-
-                //Check if drag distance is greater than 20% of the screen height
-                if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
-                {//It's a drag
-                 //check if the drag is vertical or horizontal
-                    if (Mathf.Abs(lp.x - fp.x) > Mathf.Abs(lp.y - fp.y))
-                    {   //If the horizontal movement is greater than the vertical movement...
-                        if ((lp.x > fp.x))  //If the movement was to the right)
-                        {   //Right swipe
-                            Debug.Log("Right Swipe");
-                        }
-                        else
-                        {   //Left swipe
-                            Debug.Log("Left Swipe");
-                        }
-                    }
-                    else
-                    {   //the vertical movement is greater than the horizontal movement
-                        if (lp.y > fp.y)  //If the movement was up
-                        {   //Up swipe
-                            Debug.Log("Up Swipe");
-                        }
-                        else
-                        {   //Down swipe
-                            Debug.Log("Down Swipe");
-                        }
-                    }
-                }
-                else
-                {   //It's a tap as the drag distance is less than 20% of the screen height
-                    Debug.Log("Tap");
-                }
+                swipeDelta = (Vector2)Input.mousePosition - startTouch;
             }
         }
+
+        if(swipeDelta.magnitude > 125)
+        {
+            float x = swipeDelta.x;
+            float y = swipeDelta.y;
+            if(Mathf.Abs(x) > Mathf.Abs(y))
+            {
+                if (x < 0)
+                {
+                    swipeLeft = true;
+
+                }
+                else
+                {
+                    swipeRight = true;
+                }
+            }
+            else
+            {
+                if (y < 0)
+                {
+                    swipeDown = true;
+                }
+                else
+                {
+                    swipeUp = true;
+                }
+            }
+            Reset();
+
+        }
+
+        
+    }
+    private void Reset()
+    {
+        startTouch = swipeDelta = Vector2.zero;
+        isDraging = false;
     }
 }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1465501166869077784}
   - component: {fileID: -841223740398292556}
   - component: {fileID: -8820914993424905664}
+  - component: {fileID: 5386745404156242331}
   m_Layer: 0
   m_Name: "C\xEDrculo Normal"
-  m_TagString: Untagged
+  m_TagString: Shape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -8820914993424905664}
-  expandSpeed: 0.3
+  expandSpeed: 0.1
 --- !u!50 &-8820914993424905664
 Rigidbody2D:
   serializedVersion: 4
@@ -118,3 +119,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &5386745404156242331
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734523258715467220}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 45.010002, y: 45.010002}
+    newSize: {x: 45.010002, y: 45.010002}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 45.010002, y: 45.010002}
+  m_EdgeRadius: 0

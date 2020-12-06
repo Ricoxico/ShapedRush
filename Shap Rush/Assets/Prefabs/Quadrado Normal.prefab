@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6680724842950035961}
   m_Layer: 0
   m_Name: Quadrado Normal
-  m_TagString: Untagged
+  m_TagString: Shape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6680724842950035961}
-  expandSpeed: 0.3
+  expandSpeed: 0.1
 --- !u!50 &6680724842950035961
 Rigidbody2D:
   serializedVersion: 4

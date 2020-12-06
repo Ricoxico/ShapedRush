@@ -13,16 +13,19 @@ public class HexagonScript : MonoBehaviour
         transform.localScale = Vector3.one * 0.01f;
 
     }
+    
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         transform.localScale += Vector3.one * expandSpeed * Time.deltaTime;
 
-        if (transform.localScale.x >= 0.5f)
+        if (transform.localScale.x >= 0.35f)
         {
             Destroy(gameObject);
         }
-
+        
     }
+
 }
+
