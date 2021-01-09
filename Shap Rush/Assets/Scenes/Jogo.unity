@@ -158,7 +158,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.4745098, g: 0.30842447, b: 0.19215688, a: 0}
+  m_BackGroundColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d98f69d15cba947b7564219bc210d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 7
+  spawnRate: 0.35
   shapesPrefabs:
   - {fileID: 1622404414277101249, guid: 2379e448665c81e47882be41397fe83c, type: 3}
   - {fileID: 734523258715467220, guid: 94422b3fcb6ec7c45a7ef2f242d24ca6, type: 3}
